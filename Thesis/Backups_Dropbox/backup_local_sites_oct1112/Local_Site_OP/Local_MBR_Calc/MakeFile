@@ -1,0 +1,19 @@
+all: Create_Local_MBR
+
+Create_Local_MBR: main.o FileWriter.o EncCoordsExtraction.o Local_MBR_Calc.o
+	g++ main.o FileWriter.o EncCoordsExtraction.o Local_MBR_Calc.o -o Create_Local_MBR
+
+main.o: main.cpp
+	g++ -c main.cpp
+
+FileWriter.o: FileWriter.cpp
+	g++ -c FileWriter.cpp
+
+EncCoordsExtraction.o: EncCoordsExtraction.cpp
+	g++ -c EncCoordsExtraction.cpp
+
+Local_MBR_Calc.o: Local_MBR_Calc.cpp
+	g++ -c Local_MBR_Calc.cpp
+
+clean:
+	rm -rf *o Create_Local_MBR

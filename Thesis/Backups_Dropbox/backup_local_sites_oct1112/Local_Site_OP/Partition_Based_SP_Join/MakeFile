@@ -1,0 +1,19 @@
+all: local_pb_sp_join
+
+local_pb_sp_join: main.o FileWriter.o PartitionProcessing.o Global_MBR_Calc.o
+	g++ main.o FileWriter.o PartitionProcessing.o Global_MBR_Calc.o -o local_pb_sp_join
+
+main.o: main.cpp
+	g++ -c main.cpp
+
+FileWriter.o: FileWriter.cpp
+	g++ -c FileWriter.cpp
+
+PartitionProcessing.o: PartitionProcessing.cpp
+	g++ -c PartitionProcessing.cpp
+
+Global_MBR_Calc.o: Global_MBR_Calc.cpp
+	g++ -c Global_MBR_Calc.cpp
+
+clean:
+	rm -rf *o local_pb_sp_join

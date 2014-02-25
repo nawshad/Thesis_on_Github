@@ -1,0 +1,19 @@
+all: Create_Global_MBR
+
+Create_Global_MBR: main.o FileWriter.o EncCoordsExtraction.o Global_MBR_Calc.o
+	g++ main.o FileWriter.o EncCoordsExtraction.o Global_MBR_Calc.o -o Create_Global_MBR
+
+main.o: main.cpp
+	g++ -c main.cpp
+
+FileWriter.o: FileWriter.cpp
+	g++ -c FileWriter.cpp
+
+EncCoordsExtraction.o: EncCoordsExtraction.cpp
+	g++ -c EncCoordsExtraction.cpp
+
+Global_MBR_Calc.o: Global_MBR_Calc.cpp
+	g++ -c Global_MBR_Calc.cpp
+
+clean:
+	rm -rf *o Create_Global_MBR
